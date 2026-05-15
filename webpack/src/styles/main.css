@@ -1,0 +1,9 @@
+/* Main styles for the project */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles can go here */
+body {
+    transition: background-color 0.5s ease;
+}
