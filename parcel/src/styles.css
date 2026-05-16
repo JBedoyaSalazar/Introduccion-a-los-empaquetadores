@@ -1,56 +1,93 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap");
 
+:root {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --card-bg: #1e1e1e;
+  --accent-color: #bb86fc;
+}
+
 body {
   margin: 0;
   padding: 0;
-  color: #3c484e;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   font-family: "Open Sans", sans-serif;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .Main {
-  padding: 10px;
-  grid-template-columns: minmax(auto, 768px);
-  display: grid;
-  justify-content: center;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .Items {
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1.5rem;
-  grid-row-gap: 1.5em;
   display: grid;
+  grid-template-columns: 1fr; /* Mobile: 1 */
+  grid-gap: 1.5rem;
+}
+
+/* Tablet: 2 */
+@media (min-width: 640px) {
+  .Items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Laptop: 3 */
+@media (min-width: 1024px) {
+  .Items {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Desktop: 4 */
+@media (min-width: 1280px) {
+  .Items {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .Card {
-  text-decoration: none;
-  box-shadow: 8px 14px 38px rgba(39, 44, 49, 0.06),
-    1px 3px 8px rgba(39, 44, 49, 0.03);
-  border-radius: 5px;
-  margin: 0 0 20px 0;
-  display: block;
-  animation-duration: 4s;
-  animation-name: fade;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-in-out;
+  animation: fade 1s ease-in;
+}
+
+.Card:hover {
+  transform: translateY(-5px);
 }
 
 .Card img {
   width: 100%;
-  height: auto;
-  border-radius: 5px 5px 0 0;
+  height: 250px;
+  object-fit: cover;
 }
 
 .Card h2 {
-  font-size: 18px;
-  font-weight: 300;
-  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 15px;
+  margin: 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.Card h2 span {
+  font-weight: 700;
+  color: var(--accent-color);
 }
 
 @keyframes fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
