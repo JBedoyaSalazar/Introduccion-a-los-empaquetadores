@@ -1,0 +1,26 @@
+{
+  "name": "sbuild",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "esbuild src/index.tsx --bundle --minify --sourcemap --outfile=public/bundle.js",
+    "dev": "node esbuild.dev.js",
+    "start": "npm run dev",
+    "open": "start http://localhost:3000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "esbuild": "^0.28.0",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6"
+  }
+}
